@@ -1,5 +1,8 @@
 package com.ccsu.base.list;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -9,4 +12,5 @@ package com.ccsu.base.list;
  * Description:
  */
 public class ListTest {
+    List list = new ArrayList();
 }

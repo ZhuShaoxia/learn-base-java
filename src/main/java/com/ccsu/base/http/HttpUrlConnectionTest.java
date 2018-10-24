@@ -18,12 +18,11 @@ import java.net.URL;
 public class HttpUrlConnectionTest {
     public static void main(String[] args) throws IOException {
         try {
+            String s = "https://mp.weixin.qq.com/s/Cpxiq7EuMtfAC8f4BmVIOQ";
             // 1. 得到访问地址的URL
-            URL url = new URL(
-                    "http://localhost:8080/Servlet/do_login.do?username=test&password=123456");
+            URL url = new URL(s);
             // 2. 得到网络访问对象java.net.HttpURLConnection
-            HttpURLConnection connection = (HttpURLConnection) url
-                    .openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             /* 3. 设置请求参数（过期时间，输入、输出流、访问方式），以流的形式进行连接 */
             // 设置是否向HttpURLConnection输出
             connection.setDoOutput(false);
@@ -47,7 +46,7 @@ public class HttpUrlConnectionTest {
                 // 从流中读取响应信息
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(connection.getInputStream()));
-                String line = null;
+                String line;
 
                 while ((line = reader.readLine()) != null) { // 循环从流中读取
                     msg += line + "\n";

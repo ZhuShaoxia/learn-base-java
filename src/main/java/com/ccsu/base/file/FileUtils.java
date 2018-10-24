@@ -101,6 +101,10 @@ public class FileUtils {
 
     public static void main(String[] args) throws IOException {
         //FileUtils.fileToFileByByte("/Users/zhuxiaolei/error.log", "/Users/zhuxiaolei/true.log");
-        FileUtils.fileToFileByChar("/Users/zhuxiaolei/error.log", "/Users/zhuxiaolei/true.log");
+        //FileUtils.fileToFileByChar("/Users/zhuxiaolei/error.log", "/Users/zhuxiaolei/true.log");
+        //Float a = 0.09f;
+        //System.out.println(Float.floatToRawIntBits(a));
+        int a = 9;
+        System.out.println(Integer.toBinaryString(9));
     }
 }
