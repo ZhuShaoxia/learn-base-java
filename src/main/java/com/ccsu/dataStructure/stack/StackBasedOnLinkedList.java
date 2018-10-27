@@ -3,7 +3,7 @@ package com.ccsu.dataStructure.stack;
 /**
  * @Author: Xiaolei Zhu
  * @Date: 2018/10/25 17:27
- * @Describe:
+ * @Describe: 基于链表实现的链式栈
  * @Email: mr.zhuxiaolei@gmail.com
  */
 public class StackBasedOnLinkedList {
@@ -24,12 +24,18 @@ public class StackBasedOnLinkedList {
         }
     }
 
+    /**
+     * 1. 当头为空 返回 <p>-1</p>
+     * 2. 当头不为空时，返回头的值，再指向下一个结点
+     * @return
+     */
     public int pop() {
         if (top == null) {
             return -1;
         }
+        int value = top.data;
         top = top.next;
-        return top.data;
+        return value;
     }
 
     public void printAll() {
@@ -57,5 +63,10 @@ public class StackBasedOnLinkedList {
             stackBasedOnLinkedList.push(i);
         }
         stackBasedOnLinkedList.printAll();
+        System.out.println();
+        for(int i = 0  ; i < 5 ; i++){
+            int value = stackBasedOnLinkedList.pop();
+            System.out.print(value+" ");
+        }
     }
 }
