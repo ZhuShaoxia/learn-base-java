@@ -1,0 +1,40 @@
+
+  Instances of the class {@code Class} represent classes and
+  interfaces in a running Java application.  An enum is a kind of
+  class and an annotation is a kind of interface.  Every array also
+  belongs to a class that is reflected as a {@code Class} object
+  that is shared by all arrays with the same element type and number
+  of dimensions.  The primitive Java types ({@code boolean},
+  {@code byte}, {@code char}, {@code short},
+  {@code int}, {@code long}, {@code float}, and
+  {@code double}), and the keyword {@code void} are also
+  represented as {@code Class} objects.
+ 
+  <p> {@code Class} has no public constructor. Instead {@code Class}
+  objects are constructed automatically by the Java Virtual Machine as classes
+  are loaded and by calls to the {@code defineClass} method in the class
+  loader.
+ 
+  <p> The following example uses a {@code Class} object to print the
+  class name of an object:
+ 
+  <blockquote><pre>
+      void printClassName(Object obj) {
+          System.out.println("The class of " + obj +
+                             " is " + obj.getClass().getName());
+      }
+  </pre></blockquote>
+ 
+  <p> It is also possible to get the {@code Class} object for a named
+  type (or for void) using a class literal.  See Section 15.8.2 of
+  <cite>The Java&trade; Language Specification</cite>.
+  For example:
+ 
+  <blockquote>
+      {@code System.out.println("The name of class Foo is: "+Foo.class.getName());}
+  </blockquote>
+ 
+  @param <T> the type of the class modeled by this {@code Class}
+  object.  For example, the type of {@code String.class} is {@code
+  Class<String>}.  Use {@code Class<?>} if the class being modeled is
+  unknown.
