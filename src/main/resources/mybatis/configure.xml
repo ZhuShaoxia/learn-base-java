@@ -10,6 +10,7 @@
     </plugins>
     <environments default="development">
         <environment id="development">
+            <!--决定事务作用域和控制方式的事务管理器-->
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}"/>
