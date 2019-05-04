@@ -2,6 +2,7 @@ package com.ccsu.mybatis.dao;
 
 import com.ccsu.mybatis.bean.Message;
 import com.ccsu.mybatis.config.DBAccess;
+import com.ccsu.mybatis.mapper.IMessage;
 import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
@@ -22,8 +23,10 @@ public class MessageDao {
         SqlSession sqlSession = null;
         try {
             sqlSession = dbAccess.getSqlSession();
+            Message message = null;
             String sql = "";
-            final List<Object> objects = sqlSession.selectList(sql);
+            sqlSession.selectList(sql);
+            sqlSession.selectList("mapper 中的 id",message);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -35,8 +38,28 @@ public class MessageDao {
         return null;
     }
 
+    public List<Message> quertyMessageList(){
+        DBAccess dbAccess = new DBAccess();
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = dbAccess.getSqlSession();
+            Message message = null;
+            IMessage mapper = sqlSession.getMapper(IMessage.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (sqlSession!=null){
+                sqlSession.close();
+            }
+        }
+
+        return null;
+    }
+
+
     public static void main(String[] args) {
         MessageDao messageDao = new MessageDao();
         messageDao.queryMessageList("","");
+        Class message = Message.class;
     }
 }
